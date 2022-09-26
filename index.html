@@ -10,12 +10,15 @@
   </head>
   <body>
     <header></header>
-    <section class="pt-4">
+    <section class="pt-4 pb-4">
       <div class="container d-flex justify-content-around">
         <div class="row">
+          <!--Card-->
           <div class="col-lg-6">
             <div class="card">
+              <!--Product Image-->
               <img
+                id="card-img-top"
                 class="card-img-top"
                 src="./assets/img/shoes-g512cfdef2_640.jpg"
                 alt="Card image"
@@ -25,40 +28,70 @@
                 <div class="container">
                   <div class="row">
                     <div class="col">
-                      <h4 class="card-title">Sneakers</h4>
-                      <h4>$60</h4>
+                      <!--Card Title-->
+                      <h4 id="card-title" class="card-title">Sneakers</h4>
+                      <!--Card Price-->
+                      <h4 id="card-price">&euro; 60</h4>
                     </div>
                     <div class="col align-items-center">
-                      <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="#" class="btn col-md-2 btn-outline-primary">View Details</a>
-                      </div> -->
                       <a href="#" class="btn btn-outline-primary w-100 my-auto"
-                        >View Details</a
+                        >Ver Detalles</a
                       >
                     </div>
                   </div>
                 </div>
                 <hr />
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quaerat error? Ipsum quisquam voluptatibus ipsam, inventore odit accusamus nostrum maiores quae deleniti, quidem reiciendis? Doloremque illo nihil totam quasi voluptas!.</p>
-                <a href="#" class="btn btn-success">Buy Now</a>
-                <a href="#" class="btn btn btn-outline-success">Cancel</a>
+                <!--Card Text-->
+                <p id="card-text" class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Illum, quaerat error? Ipsum quisquam voluptatibus ipsam,
+                  inventore odit accusamus nostrum maiores quae deleniti, quidem
+                  reiciendis? Doloremque illo nihil totam quasi voluptas!.
+                </p>
+                <a href="#" class="btn btn-success">Comprar Ahora</a>
+                <a href="#" class="btn btn btn-outline-success">Cancelar</a>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <!--Configuration Inputs-->
+          <div class="pad-one-col col-lg-6">
             <h3 class="display-6">Personalizar</h3>
-            <select id="product-img"
-            class="form-select mb-3 mt-2 image-picker show-html"
-            aria-label="Default select example"
-            onChange="getSelectedImage(this);">
-              <option value="Default">Seleccionar Imagen</option>
-              <option data-img-src="assets/img/computer-g3ced3ba95_640.jpg" data-img-class="first" data-img-alt="Page 1" value="1"> Laptop </option>
-              <option data-img-src="assets/img/shoes-g512cfdef2_640.jpg" data-img-alt="Page 2" value="2"> Sneakers </option>
-              <option data-img-src="assets/img/vinyl-record-g9e6a0306d_640.jpg" data-img-alt="Page 3" data-img-class="last" value="3"> Record Player </option>
-            </select>
             <form id="product-form">
+              <!--Product Image Select-->
+              <!--Image picker: https://rvera.github.io/image-picker/-->
+              <select
+                id="product-img"
+                class="form-select mb-3 mt-2 image-picker show-html"
+                aria-label="Default select example"
+              >
+                <option value="Default">Seleccionar Imagen</option>
+                <option
+                  data-img-src="assets/img/computer-g3ced3ba95_640.jpg"
+                  data-img-class="first"
+                  data-img-alt="Page 1"
+                  value="1"
+                >
+                  Portátil
+                </option>
+                <option
+                  data-img-src="assets/img/shoes-g512cfdef2_640.jpg"
+                  data-img-alt="Page 2"
+                  value="2"
+                >
+                  Tennis deportivas
+                </option>
+                <option
+                  data-img-src="assets/img/vinyl-record-g9e6a0306d_640.jpg"
+                  data-img-alt="Page 3"
+                  data-img-class="last"
+                  value="3"
+                >
+                  Tocadiscos
+                </option>
+              </select>
               <div class="form-group">
                 <label for="product">Producto</label>
+                <!--Product Name Input-->
                 <input
                   id="product-input"
                   type="text"
@@ -69,21 +102,23 @@
               </div>
               <div class="form-group">
                 <label for="precio">Precio</label>
-                <div class="input-group mb-3 mt-2">
-                  <span class="input-group-text">$</span>
+                <div class="input-group has-validation mb-3 mt-2">
+                  <span class="input-group-text">&euro;</span>
+                  <!--Precio-->
                   <input
-                    id="precio-input"
+                    id="price-input"
                     type="text"
                     class="form-control"
                     id="precio"
                     aria-label="Amount (to the nearest dollar)"
                     placeholder="Ingresar Precio"
                   />
-                  <span class="input-group-text">.00</span>
+                  <div class="invalid-feedback">Proveer un número válido.</div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="description">Descripción</label>
+                <!--Description-->
                 <textarea
                   id="description-input"
                   class="form-control mb-3 mt-2"
@@ -93,7 +128,7 @@
                 ></textarea>
               </div>
               <button
-                id="create-tweet-button"
+                id="preview-button"
                 type="submit"
                 class="btn btn-primary w-100"
               >
@@ -104,25 +139,8 @@
         </div>
       </div>
     </section>
-    <script src="./assets/js/index.js"></script>
     <script src="./assets/js/jquery-3.6.1.min.js"></script>
     <script src="./assets/js/image-picker.js"></script>
-    <script type="text/javascript">
-      jQuery("select.image-picker").imagepicker({
-        hide_select:  false,
-      });
-
-      function getSelectedImage(sel) {
-        const elem = document.getElementById('card-image');  
-        if(sel.options[sel.selectedIndex].value == "1"){
-          elem.src = "assets/img/computer-g3ced3ba95_640.jpg";
-        }else if(sel.options[sel.selectedIndex].value == "2"){
-          elem.src = "assets/img/shoes-g512cfdef2_640.jpg";
-        }else if(sel.options[sel.selectedIndex].value == "3"){
-          elem.src = "assets/img/vinyl-record-g9e6a0306d_640.jpg";
-        };
-      } 
-
-    </script>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>
